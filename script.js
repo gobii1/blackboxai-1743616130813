@@ -1,5 +1,13 @@
-// Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
+    // Navigation and UI functions
+    document.addEventListener('DOMContentLoaded', function() {
+        // Highlight active navigation link
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('text-blue-600', 'font-medium');
+                link.classList.remove('text-gray-600');
+            }
+        });
     const mobileMenuButton = document.querySelector('button.md\\:hidden');
     const navLinks = document.querySelector('nav.md\\:flex');
     
@@ -18,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scrolling for anchor links
+        // Mobile menu toggle
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
